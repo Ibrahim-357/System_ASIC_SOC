@@ -65,7 +65,7 @@ An end-to-end ASIC digital design and implementation of a low-power multi-clock 
 
 | Metric / Stage | Result | Details |
 | :--- | :--- | :--- |
-| **Technology** | TSMC 130nm CMOS | `scmetro_tsmc_cl013g_rvt` (SS 1.08V 125°C / FF 1.32V -40°C) |
+| **Technology** | TSMC 130nm CMOS | `scmetro_tsmc_cl013g_rvt` (SS 1.08V 125ï¿½C / FF 1.32V -40ï¿½C) |
 | **Synthesized Area** | **22,880.9 $\mu\text{m}^2$** | Zero assign statements (`VO-4` clean netlist) |
 | **Post-DFT Area** | **25,762.7 $\mu\text{m}^2$** | Incremental scan buffering & optimization |
 | **Setup Timing (WNS)** | **0.00 ns (Slack: +4.18 ns)** | Critical path: 8-bit unsigned divider in ALU @ 50 MHz |
@@ -81,48 +81,48 @@ An end-to-end ASIC digital design and implementation of a low-power multi-clock 
 
 ```
 +-- RTL/                         # Verilog-2001 synthesizable source code
-¦   +-- ALU/                     # 16-operation Arithmetic Logic Unit
-¦   +-- ASYNC_FIFO/              # Dual-clock Asynchronous FIFO with Gray sync
-¦   +-- Clock_Divider/           # Configurable odd/even clock divider
-¦   +-- Clock_Gating/            # Integrated clock gating (ICG) latch cell
-¦   +-- DATA_SYNC/               # Multi-flop data bus & pulse synchronizer
-¦   +-- PULSE_GEN/               # Level-to-pulse edge detector
-¦   +-- RegFile/                 # 16x8-bit register file
-¦   +-- RST_SYNC/                # Reset synchronizer (asynchronous assert, sync deassert)
-¦   +-- SYS_CTRL/                # Master system FSM controller
-¦   +-- SYS_TOP/                 # Top-level functional & DFT wrappers, testbench
-¦   +-- UART/                    # UART RX & TX modules with parity and framing logic
-¦
+ï¿½   +-- ALU/                     # 16-operation Arithmetic Logic Unit
+ï¿½   +-- ASYNC_FIFO/              # Dual-clock Asynchronous FIFO with Gray sync
+ï¿½   +-- Clock_Divider/           # Configurable odd/even clock divider
+ï¿½   +-- Clock_Gating/            # Integrated clock gating (ICG) latch cell
+ï¿½   +-- DATA_SYNC/               # Multi-flop data bus & pulse synchronizer
+ï¿½   +-- PULSE_GEN/               # Level-to-pulse edge detector
+ï¿½   +-- RegFile/                 # 16x8-bit register file
+ï¿½   +-- RST_SYNC/                # Reset synchronizer (asynchronous assert, sync deassert)
+ï¿½   +-- SYS_CTRL/                # Master system FSM controller
+ï¿½   +-- SYS_TOP/                 # Top-level functional & DFT wrappers, testbench
+ï¿½   +-- UART/                    # UART RX & TX modules with parity and framing logic
+ï¿½
 +-- Synthesis/                   # Synopsys Design Compiler synthesis setup & outputs
-¦   +-- cons.tcl                 # SDC timing & environment constraints
-¦   +-- syn_script.tcl           # Automated synthesis compile script
-¦   +-- system.lst               # Relative RTL source filelist
-¦   +-- netlists/                # Synthesized gate-level netlists (.v, .ddc)
-¦   +-- reports/                 # Area, power, clock, setup, hold, constraint reports
-¦   +-- sdc/                     # Generated Synopsys Design Constraints (.sdc)
-¦   +-- sdf/                     # Standard Delay Format (.sdf) for gate-level simulation
-¦   +-- log/                     # Synthesis execution log (syn.log)
-¦
+ï¿½   +-- cons.tcl                 # SDC timing & environment constraints
+ï¿½   +-- syn_script.tcl           # Automated synthesis compile script
+ï¿½   +-- system.lst               # Relative RTL source filelist
+ï¿½   +-- netlists/                # Synthesized gate-level netlists (.v, .ddc)
+ï¿½   +-- reports/                 # Area, power, clock, setup, hold, constraint reports
+ï¿½   +-- sdc/                     # Generated Synopsys Design Constraints (.sdc)
+ï¿½   +-- sdf/                     # Standard Delay Format (.sdf) for gate-level simulation
+ï¿½   +-- log/                     # Synthesis execution log (syn.log)
+ï¿½
 +-- DFT/                         # Synopsys DFT Compiler scan chain insertion
-¦   +-- cons.tcl                 # Timing constraints including SCAN_CLK & scan I/O delays
-¦   +-- dft_script.tcl           # Scan chain configuration & insertion script
-¦   +-- system.lst               # RTL filelist targeting SYS_TOP_dft.v
-¦   +-- netlists/                # Post-DFT scan-inserted gate-level netlist (.v, .ddc)
-¦   +-- reports/                 # Post-DFT timing, area, power, and clock reports
-¦   +-- sdc/                     # Post-DFT timing constraints (.sdc)
-¦   +-- sdf/                     # Post-DFT Standard Delay Format (.sdf)
-¦   +-- log/                     # DFT insertion & coverage log (dft.log)
-¦
+ï¿½   +-- cons.tcl                 # Timing constraints including SCAN_CLK & scan I/O delays
+ï¿½   +-- dft_script.tcl           # Scan chain configuration & insertion script
+ï¿½   +-- system.lst               # RTL filelist targeting SYS_TOP_dft.v
+ï¿½   +-- netlists/                # Post-DFT scan-inserted gate-level netlist (.v, .ddc)
+ï¿½   +-- reports/                 # Post-DFT timing, area, power, and clock reports
+ï¿½   +-- sdc/                     # Post-DFT timing constraints (.sdc)
+ï¿½   +-- sdf/                     # Post-DFT Standard Delay Format (.sdf)
+ï¿½   +-- log/                     # DFT insertion & coverage log (dft.log)
+ï¿½
 +-- Formality/                   # Formal Logic Equivalence Checking (LEC)
-¦   +-- post-syn/                # RTL vs. Synthesized Netlist verification
-¦   ¦   +-- syn_fm_script.tcl    # Formality setup and verification script
-¦   ¦   +-- reports/             # Passing/failing/aborted points reports
-¦   ¦   +-- logs/                # Formality post-synthesis verification log
-¦   +-- post-dft/                # RTL vs. Scan-Inserted Netlist verification
-¦       +-- dft_fm_script.tcl    # Formality script with scan ports/constants
-¦       +-- reports/             # Passing/failing/aborted points reports
-¦       +-- logs/                # Formality post-DFT verification log
-¦
+ï¿½   +-- post-syn/                # RTL vs. Synthesized Netlist verification
+ï¿½   ï¿½   +-- syn_fm_script.tcl    # Formality setup and verification script
+ï¿½   ï¿½   +-- reports/             # Passing/failing/aborted points reports
+ï¿½   ï¿½   +-- logs/                # Formality post-synthesis verification log
+ï¿½   +-- post-dft/                # RTL vs. Scan-Inserted Netlist verification
+ï¿½       +-- dft_fm_script.tcl    # Formality script with scan ports/constants
+ï¿½       +-- reports/             # Passing/failing/aborted points reports
+ï¿½       +-- logs/                # Formality post-DFT verification log
+ï¿½
 +-- .gitignore                   # EDA-specific Git ignore rules (DC, Formality, QuestaSim)
 +-- README.md                    # Project documentation
 ```
@@ -156,16 +156,3 @@ fm_shell -f dft_fm_script.tcl | tee dft_fm.log
 ```
 
 ---
-
-## ?? CV / Resume Experience Description
-
-### Option 1: Bullet-Point Format (Ideal for Experience / Projects section)
-- **Low-Power Multi-Clock SoC Subsystem (RTL to DFT & Formal Sign-off)**
-  - Designed and verified a synthesizable SoC subsystem in Verilog featuring a UART interface, 16-operation ALU, 16x8 register file, and dual-clock asynchronous FIFO with Gray-coded pointer synchronization.
-  - Resolved Clock Domain Crossing (CDC) and structural hold violations across 50 MHz (`REF_CLK`) and 3.686 MHz (`UART_CLK`) domains using multi-stage synchronizers and pulse generators.
-  - Synthesized logic targeting TSMC 130nm technology in Synopsys Design Compiler, achieving 0.00 WNS timing closure (+4.18 ns setup slack) and an assign-free netlist (`22,881 µm²`).
-  - Integrated 3 scan chains using DFT Compiler with test mode bypass muxes for asynchronous reset synchronizers, achieving **99.49% stuck-at fault test coverage**.
-  - Verified logic equivalence across both Post-Synthesis and Post-DFT netlists against golden RTL using Synopsys Formality with **100% passing compare points (384/384)**.
-
-### Option 2: Short Summary / Portfolio Blurb
-> **Low-Power SoC Subsystem with DFT & Formal Sign-Off:** Designed a dual-clock ASIC subsystem featuring UART, 16-op ALU, register file, and asynchronous FIFO with Gray-coded synchronizers. Implemented the complete front-to-back synthesis and test flow using Synopsys Design Compiler and DFT Compiler (TSMC 130nm), achieving timing closure, zero design rule violations, and **99.49% scan fault coverage** across 3 scan chains. Formally verified 100% equivalence (384 compare points) using Synopsys Formality for both post-synthesis and post-DFT netlists.
