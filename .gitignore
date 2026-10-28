@@ -1,0 +1,62 @@
+# ==============================================================================
+# ASIC Design Flow .gitignore (Synopsys DC, Formality, QuestaSim, SpyGlass)
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Synopsys Design Compiler / DFT Compiler Scratch & Working Directories
+# ------------------------------------------------------------------------------
+work/
+WORK/
+alib-*/
+*.pvl
+*.syn
+*.mr
+command.log
+filenames.log
+default.svf
+
+# ------------------------------------------------------------------------------
+# Synopsys Formality Scratch & Log Files
+# ------------------------------------------------------------------------------
+formality.log
+fm_shell_command.log
+fm_shell_command.lck
+formality_svf/
+FM_WORK/
+
+# ------------------------------------------------------------------------------
+# Simulation Temporary Files (ModelSim / QuestaSim / VCS / Icarus)
+# ------------------------------------------------------------------------------
+transcript
+vsim.wlf
+*.wlf
+*.cr.mti
+*.mpf
+covhtmlreport/
+*.vcd
+*.fsdb
+novas.conf
+novas.rc
+verdiLog/
+
+# ------------------------------------------------------------------------------
+# Lint & CDC (SpyGlass) Temporary Files
+# ------------------------------------------------------------------------------
+spyglass-*/
+*.prj
+dashboard.log
+datasheet.log
+gui_command.log
+html.log
+
+# ------------------------------------------------------------------------------
+# Backups, Text Editor & OS Files
+# ------------------------------------------------------------------------------
+*~
+*.bak
+*.swp
+*.swo
+*.tmp
+.DS_Store
+Thumbs.db
+desktop.ini

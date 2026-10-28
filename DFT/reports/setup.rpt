@@ -1,0 +1,86 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : SYS_TOP_dft
+Version: O-2018.06-SP1
+Date   : Fri Oct  9 22:49:43 2026
+****************************************
+
+Operating Conditions: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c   Library: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+Wire Load Model Mode: top
+
+  Startpoint: UART_RX_IN (input port clocked by UART_CLK)
+  Endpoint: U_UART_RX/U_edge_bit_counter/bit_cnt_reg_0_
+            (rising edge-triggered flip-flop clocked by RX_CLK)
+  Path Group: RX_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock UART_CLK (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                   54.25      54.25 r
+  UART_RX_IN (in)                                         0.05      54.31 r
+  U_UART_RX/RX_IN (UART_RX_test_1)                        0.00      54.31 r
+  U_UART_RX/U_FSM/RX_IN (UART_RX_FSM_test_1)              0.00      54.31 r
+  U_UART_RX/U_FSM/U25/Y (OAI2B1X2M)                       0.08      54.39 f
+  U_UART_RX/U_FSM/U47/Y (OR4X1M)                          0.53      54.92 f
+  U_UART_RX/U_FSM/U46/Y (BUFX2M)                          0.20      55.12 f
+  U_UART_RX/U_FSM/enable (UART_RX_FSM_test_1)             0.00      55.12 f
+  U_UART_RX/U_edge_bit_counter/enable (edge_bit_counter_test_1)
+                                                          0.00      55.12 f
+  U_UART_RX/U_edge_bit_counter/U7/Y (AND3X2M)             0.24      55.36 f
+  U_UART_RX/U_edge_bit_counter/U27/Y (AO22X1M)            0.34      55.70 f
+  U_UART_RX/U_edge_bit_counter/bit_cnt_reg_0_/D (SDFFRQX2M)
+                                                          0.00      55.70 f
+  data arrival time                                                 55.70
+
+  clock RX_CLK (rise edge)                              271.27     271.27
+  clock network delay (ideal)                             0.00     271.27
+  clock uncertainty                                      -0.20     271.07
+  U_UART_RX/U_edge_bit_counter/bit_cnt_reg_0_/CK (SDFFRQX2M)
+                                                          0.00     271.07 r
+  library setup time                                     -0.41     270.65
+  data required time                                               270.65
+  --------------------------------------------------------------------------
+  data required time                                               270.65
+  data arrival time                                                -55.70
+  --------------------------------------------------------------------------
+  slack (MET)                                                      214.95
+
+
+  Startpoint: SE (input port clocked by SCAN_CLK)
+  Endpoint: U_ClkDiv/out_n_reg
+            (falling edge-triggered flip-flop clocked by SCAN_CLK)
+  Path Group: SCAN_CLK
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock SCAN_CLK (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                    20.00      20.00 r
+  SE (in)                                  0.52      20.52 r
+  U30/Y (INVXLM)                           0.20      20.72 f
+  U31/Y (INVXLM)                           0.50      21.22 r
+  U_ClkDiv/test_se (ClkDiv_test_1)         0.00      21.22 r
+  U_ClkDiv/out_n_reg/SE (SDFFNSRHX2M)      0.00      21.22 r
+  data arrival time                                  21.22
+
+  clock SCAN_CLK (fall edge)              50.00      50.00
+  clock network delay (ideal)              0.00      50.00
+  clock uncertainty                       -0.20      49.80
+  U_ClkDiv/out_n_reg/CKN (SDFFNSRHX2M)     0.00      49.80 f
+  library setup time                      -0.48      49.32
+  data required time                                 49.32
+  -----------------------------------------------------------
+  data required time                                 49.32
+  data arrival time                                 -21.22
+  -----------------------------------------------------------
+  slack (MET)                                        28.10
+
+
+1
