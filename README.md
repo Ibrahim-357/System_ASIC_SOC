@@ -4,7 +4,7 @@ An end-to-end ASIC digital design and implementation of a low-power multi-clock 
 
 ---
 
-## ?? Key Features & Architecture
+## Key Features & Architecture
 
 ```
                     +-------------------------------------------------------+
@@ -61,7 +61,7 @@ An end-to-end ASIC digital design and implementation of a low-power multi-clock 
 
 ---
 
-## ?? Implementation Results & Metrics
+## Implementation Results & Metrics
 
 | Metric / Stage | Result | Details |
 | :--- | :--- | :--- |
@@ -77,7 +77,7 @@ An end-to-end ASIC digital design and implementation of a low-power multi-clock 
 
 ---
 
-## ?? Repository Structure
+## Repository Structure
 
 ```
 +-- RTL/                         # Verilog-2001 synthesizable source code
@@ -129,7 +129,7 @@ An end-to-end ASIC digital design and implementation of a low-power multi-clock 
 
 ---
 
-## ?? Tool Execution Flow
+## Tool Execution Flow
 
 ### 1. Running Logic Synthesis
 ```bash
